@@ -1,20 +1,20 @@
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <p>
-    <%= form.label :commenter, "Author" %><br>
-    <%= form.text_field :commenter %>
-  </p>
+<%= form_with model: [@article, @article.comments.build], class: "container" do |form| %>
+  <div class="mb-3">
+    <%= form.label :commenter, "Author", class: "form-label" %><br>
+    <%= form.text_field :commenter, class: "form-control" %>
+  </div>
   
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
+  <div class="mb-3">
+    <%= form.label :body, class: "form-label" %><br>
+    <%= form.text_area :body, class: "form-control" %>
+  </div>
 
-  <p>
-    <%= form.label :status %><br>
-    <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
-  </p>
+  <div class="mb-3">
+    <%= form.label :status, class: "form-label" %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, { prompt: "Select Status" }, class: "form-select" %>
+  </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+  <div>
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+  </div>
 <% end %>
